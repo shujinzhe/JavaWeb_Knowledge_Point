@@ -1,0 +1,21 @@
+两种方式：官方文档：Documentation-->Configuration-->Context
+	1、在Tomcat主目录下的conf文件夹中的server.xml中，在<Host>标签中添加
+	<Context path="/kk" docBase="E:\web1" reloadable="true" />
+		path:映射的虚拟url
+		docBase:实际文件存放的磁盘位置
+		reloadable:设置为true，Tomcat服务器会监听WEB-INF/lib目录中的
+			class文件的变化，开发阶段可以开启，实际生产环境中需要关闭以减轻服务器压力
+					
+	2、在conf目录下建立一个engineName目录，其中建立hostName目录，
+	在hostName中建立xxx.xml文件。(xxx代表要访问的虚拟路径)
+	在xxx.xml中添加：
+		<Context docBase="E:\web1" reloadable="true" />
+	-----engineName:<Engine>标签下的name属性值
+	-----hostName:<Host>标签下的name属性值 
+	这种方式较为常用，不需要重启服务器
+	
+其他配置：配置项目文件列表
+	1、在conf目录下的web.xml中的<servlet>标签下的<init-param>标签下的
+	listings属性设置为true
+		在url的访问中如果是目录，会在页面列出目录下的文件，WEB-INF是隐藏的。
+		开发中设为true方便浏览，发布后要改成false

@@ -1,0 +1,16 @@
+1、目录结构
+	bin:启动和关闭Tomcat的各种脚本文件
+	conf:存放Tomcat服务器的各种配置文件(server.xml和web.xml)
+	lib:存放所需JAR文件
+	logs:日志文件，启动失败就会有logs文件
+	temp:临时文件
+	webapps:默认将WEB应用程序放在此目录下(默认访问ROOT目录)
+	work:JSP生成的Servlet的存放路径
+	
+2、环境变量
+	JAVA_HOME:不设置，运行start.bat文件，窗口一闪而过
+	CATALINA_HOME:任意路径均可使用startup,shutdown等命令
+	
+3、启动/关闭方式
+	startup  <=====>  shutdown
+	catalina run <=====>  Ctrl+C
