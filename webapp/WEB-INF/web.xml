@@ -4,25 +4,43 @@
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0" metadata-complete="true">
 
+	<!-- 全局参数 -->
+	<context-param>
+		<param-name>globalParam</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>	
 
+
+	<!-- 实现Servlet接口 -->
 	<servlet>
 		<servlet-name>myservlet1</servlet-name>
-		<servlet-class>Servlet.MyServlet1</servlet-class>
+		<servlet-class>Servlet基础.$1_继承Servlet</servlet-class>
 		<!-- 初始化servlet时的参数，通过ServletConfig可以获取值 -->
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
-		<!-- Tomcat一启动就初始化servlet -->
+		<!-- Tomcat一启动就初始化servlet,数字越大越先初始化 -->
 		<!-- <load-on-startup>1</load-on-startup> -->
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>myservlet1</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/myservlet1</url-pattern>
 	</servlet-mapping>
 
-
+	<!-- 继承GenericServlet -->
+	<servlet>
+		<servlet-name>myservlet2</servlet-name>
+		<servlet-class>Servlet基础.$2_继承GenericServlet</servlet-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myservlet2</servlet-name>
+		<url-pattern>/myservlet2</url-pattern>
+	</servlet-mapping>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

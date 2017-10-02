@@ -1,4 +1,4 @@
-package Servlet;
+package Servlet基础;
 
 import java.io.IOException;
 import java.util.Date;
@@ -6,6 +6,7 @@ import java.util.Enumeration;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -70,6 +71,21 @@ public class $1_继承Servlet implements Servlet{
 		 * 5、设置网页缓存失效时间
 		 */
 		resp.setDateHeader("Expire", new Date().getTime());
+		
+		/**
+		 * 6、得到servlet上下文环境
+		 * 7、得到绝对路径
+		 */
+		ServletContext sc = config.getServletContext();
+		String realPath = sc.getRealPath("/myservlet1");
+		System.out.println(realPath);
+		
+		/**
+		 * 8、得到全局参数
+		 */
+		String globalParam = config.getServletContext()
+				.getInitParameter("globalParam");
+		System.out.println("全局参数：" + globalParam);
 	}
 	
 	/**

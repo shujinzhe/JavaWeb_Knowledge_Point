@@ -23,7 +23,7 @@ Host: localhost:80
 	请求正文(只有POST请求的时候才有请求正文)
 	---------------------------------
 	@1：请求行信息
-		请求方式：GET、POST、HEAD、DELETE、OPTIONS、PUT、TRACE
+		请求方式：GET、POST、HEAD(只拿头信息)、DELETE、OPTIONS、PUT、TRACE
 		url：请求的资源，GET请求后面可带参数信息
 		Http协议的版本：1.0/1.1
 	@2：请求消息头
