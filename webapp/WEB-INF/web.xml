@@ -8,6 +8,13 @@
 	<servlet>
 		<servlet-name>myservlet1</servlet-name>
 		<servlet-class>Servlet.MyServlet1</servlet-class>
+		<!-- 初始化servlet时的参数，通过ServletConfig可以获取值 -->
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<!-- Tomcat一启动就初始化servlet -->
+		<!-- <load-on-startup>1</load-on-startup> -->
 	</servlet>
 	
 	<servlet-mapping>
