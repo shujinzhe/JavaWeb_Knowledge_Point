@@ -1,10 +1,10 @@
 package Servlet进阶;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,9 +22,21 @@ public class FirstServlet extends HttpServlet{
 //		System.out.println(new String(result));
 		
 		/**
-		 * 使用Request的getParameter方法获取请求实体内容中的参数
+		 * 1、使用Request的getParameter方法获取请求实体内容中的参数
 		 */
-		System.out.println(req.getParameter("name"));
+//		System.out.println(req.getParameter("name"));
+		
+		/**
+		 * 2、获取RequestDispatcher对象,转发到指定的jsp页面
+		 * RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/jspServlet.jsp");
+		 */
+		RequestDispatcher dispatcher = getServletConfig()
+				.getServletContext().getRequestDispatcher("/WEB-INF/jsp/jspServlet.jsp");
+		/**
+		 * 3、往request域中设置属性，供JSP页面获取
+		 */
+		req.setAttribute("info", "获取情报...");
+		dispatcher.forward(req, resp);
 	}
 	
 	
