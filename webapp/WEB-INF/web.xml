@@ -56,7 +56,21 @@
 		<servlet-name>readCookie</servlet-name>
 		<servlet-class>Servlet进阶.ReadCookieServlet</servlet-class>
 	</servlet>
-	
+	<!-- 记录上次访问时间 -->
+	<servlet>
+		<servlet-name>lastDate</servlet-name>
+		<servlet-class>Servlet进阶.LastDateServlet</servlet-class>
+	</servlet>
+	<!-- 使用Cookie登录JSP页面 -->
+	<servlet>
+		<servlet-name>loginUseCookie</servlet-name>
+		<jsp-file>/WEB-INF/jsp/loginUseCookie.jsp</jsp-file>
+	</servlet>
+	<!-- 保存Cookie -->
+	<servlet>
+		<servlet-name>loginSaveCookie</servlet-name>
+		<servlet-class>Servlet进阶.LoginSaveCookie</servlet-class>
+	</servlet>
 	
 	<!-- Servlet映射 -->
 	<servlet-mapping>
@@ -92,6 +106,21 @@
 	<servlet-mapping>
 		<servlet-name>writeCookie</servlet-name>
 		<url-pattern>/writeCookie</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>lastDate</servlet-name>
+		<url-pattern>/lastDate</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>loginUseCookie</servlet-name>
+		<url-pattern>/loginUseCookie</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>loginSaveCookie</servlet-name>
+		<url-pattern>/loginSaveCookie</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
