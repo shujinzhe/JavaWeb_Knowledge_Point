@@ -1,0 +1,18 @@
+webapp/webRoot/webContent下的目录结构与Servlet的映射结构相对应
+
+假设webapp下的文件目录层级如下：
+	webapp
+		----WEB-INF
+		----META-INF
+		----a
+			----a.html
+		----b
+			----b.html
+			----c
+				----c.html
+假设Servlet的映射结构如下：
+	/a
+	/a/aaa
+	/b/bb/bbb
+	
+在a.html中有一个超链接要访问/b/bb/bbb,则路径为../b/bb/bbb

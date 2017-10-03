@@ -1,0 +1,32 @@
+1、Cookie的缺陷
+	多人共用一台电脑的问题，不安全性；
+	
+2、Session cookie
+	一、Session通过SessionID区分不同的客户，Session是以cookie或URL重写为基础的，
+	默认使用cookie来实现，系统会创建一个名为JSESSIONID的输出cookie，这称之为
+	Session cookie，以区别persistent cookie(通常所说的cookie)
+	二、Session cookie是存储于浏览器内存中的，并不是写到硬盘上的，通常看不到JSESSIONID，
+	但是当把浏览器的cookie禁用后，地址栏可以看到信息
+	
+3、Session的创建与删除
+	创建：HttpServletRequest.getSession(true)
+	删除：  1.程序调用HttpSession.invalidate()
+		 2.达到了超时时间
+		 3.服务器进程停止
+	关闭浏览器只会使存储在客户端浏览器内存中的session cookie失效，并不会使服务的session对象失效
+	
+4、Session的超时管理
+	1.conf/web.xml中，全局的配置信息(时间为分钟)
+		<session-config>
+        	<session-timeout>30</session-timeout>
+    	</session-config>
+    2.在web应用的web.xml中配置
+    3.调用HttpSession.setMaxInactiveInterval(单位为秒)，设置的是当前的会话失效时间
+           配置优先级：3>2>1
+           
+5、不支持/关闭了Cookie的浏览器的URL重写实现Session跟踪
+	1、对所有可能被客户端访问的请求路径进行URL重写
+	2、HttpServletResponse中定义了两个用于完成URL重写的方法：
+		encodeURL方法
+		encodeRedirectURL方法
+	3、实现的原理就是在请求的URL后面加上了JSESSIONID的键值对
