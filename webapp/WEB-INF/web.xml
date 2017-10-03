@@ -23,11 +23,6 @@
 		<!-- Tomcat一启动就初始化servlet,数字越小越先初始化 -->
 		<!-- <load-on-startup>1</load-on-startup> -->
 	</servlet>
-	<servlet-mapping>
-		<servlet-name>myservlet1</servlet-name>
-		<url-pattern>/myservlet1</url-pattern>
-	</servlet-mapping>
-
 	<!-- 继承GenericServlet -->
 	<servlet>
 		<servlet-name>myservlet2</servlet-name>
@@ -37,18 +32,36 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</servlet>
+	<servlet>
+		<servlet-name>firstServlet</servlet-name>
+		<servlet-class>Servlet进阶.FirstServlet</servlet-class>
+	</servlet>
+	<!-- 将JSP文件以Servlet方式配置 -->
+	<servlet>
+		<servlet-name>jspServlet</servlet-name>
+		<jsp-file>/WEB-INF/jsp/jspServlet.jsp</jsp-file>
+	</servlet>
+	
+	
+	<!-- Servlet映射 -->
+	<servlet-mapping>
+		<servlet-name>myservlet1</servlet-name>
+		<url-pattern>/myservlet1</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>myservlet2</servlet-name>
 		<url-pattern>/myservlet2</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
-		<servlet-name>firstServlet</servlet-name>
-		<servlet-class>Servlet进阶.FirstServlet</servlet-class>
-	</servlet>
 	<servlet-mapping>
 		<servlet-name>firstServlet</servlet-name>
 		<url-pattern>/firstServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>jspServlet</servlet-name>
+		<url-pattern>/jspServlet</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
