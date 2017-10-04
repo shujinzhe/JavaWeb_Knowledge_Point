@@ -1,4 +1,4 @@
-1、<jsp:useBean>
+1、<jsp:useBean>：创建JavaBean实例
 	--------------------------------------------------
 	id：JavaBean实例对象的引用名和其存储在域范围中的名称
 	class：类的全限定名
@@ -24,4 +24,13 @@
 	JavaBean自省机制：<jsp:setProperty name="JavaBean实例名" property="*">
 	只要HTML<form>表单传递的参数名完全对应JavaBean的属性名，可一次设定所有属性
 
-3、
+3、<jsp:forward>：页面转发
+	JSP1.0：<jsp:forward page="{URL|EL表达式}" />
+	JSP1.1以上：<jsp:forward page="{URL|EL表达式}">
+					<!-- 可通过request拿到 -->
+					<!-- param不可单独使用 -->
+				  	<jsp:param.../>		
+			   </jsp:forward>
+
+4、<jsp:include>：动态引入一个JSP页面
+	flush属性设置为true：指定输出缓存是否转移到被导入文件中

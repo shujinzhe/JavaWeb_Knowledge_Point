@@ -1,0 +1,18 @@
+语法：<%@ 编译指令  属性名="属性值"...%>
+1、page：针对当前页面的指令
+	language：默认为java，无需设置
+	extends：指定JSP页面编译所产生的Java类所继承的父类或所实现的接口
+	import：导入包，默认导入的包有：java.lang.*，javax.servlet.*，
+			javax.servlet.jsp.*，javax.servlet.http.*
+	session：是否需要HTTP Session
+	buffer：缓冲区，out缓存JSP，默认值为8k，可设置为none或其他值，单位为Kb
+	autoFlush：缓冲区即将溢出时，是否需要强制输出缓冲区的内容。true正常输出，
+			false在buffer溢出时产生一个异常
+	info：JSP程序的信息
+	errorPage：指定错误处理页面
+	isErrorPage：设置JSP页面是否为错误处理程序
+	contentTye：默认MIME类型是text/html；默认字符集为ISO-9959-1
+	pageEncoding：生成网页的编码字符集
+2、include：指定包含另一个页面
+	file：嵌入页面的url
+3、taglib：定义和访问自定义标签

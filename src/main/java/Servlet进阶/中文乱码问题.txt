@@ -1,0 +1,13 @@
+1.POST请求
+	req.getCharacterEncoding("UTF-8");
+	
+2.GET请求
+	1.配置tomcat的配置文件server.xml里这句：
+    <Connector URIEncoding="UTF-8" 
+       port="8080"   maxHttpHeaderSize="8192"
+       maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+       enableLookups="false" redirectPort="8443" acceptCount="100"
+       connectionTimeout="20000" disableUploadTimeout="true" />
+           加上这句：URIEncoding="UTF-8"
+	2.使用String name=new String(request.getParameter("name").getBytes("ISO-8859-1"),"UTF-8");
+	3.使用URLEncoder和URLDecoder
