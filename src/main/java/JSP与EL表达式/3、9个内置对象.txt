@@ -1,0 +1,19 @@
+1、request
+2、response
+	response.setHeader("refresh",1)：每隔一秒刷新页面
+	response.setHeader("refresh","5;url=http://www.baidu.com")：5秒后转向百度
+3、session
+	默认开启，<%@ page session="false">在该页面禁用session
+4、application
+5、out
+6、config
+	Servlet配置信息
+7、page
+	代表页面本身，也就是this
+8、pageContext
+	1.封装了当前JSP页面的运行信息，提供了返回JSP页面的其它隐式对象的方法
+	2.可以使用pageContext的forward和include方法，代替RequestDispatcher的forward和include方法
+	3.可以使用set/getProperty设置或访问作用域中的属性
+	4.findAttribute可以依次在page，request，session，application中寻找属性，没有返回null
+9、exception
+	设置<%@ page isErrorPage="true">时可以使用

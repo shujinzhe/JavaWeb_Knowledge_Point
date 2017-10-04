@@ -9,6 +9,20 @@
 		<param-name>globalParam</param-name>
 		<param-value>UTF-8</param-value>
 	</context-param>	
+	
+	<!-- 配置处理异常 -->
+	<error-page>
+		<!-- JSP页面产生的异常类型 -->
+		<exception-type>java.lang.Exception</exception-type>
+		<!-- 出现异常时转向的页面 -->
+		<location>/WEB-INF/error.jsp</location>
+	</error-page>
+	<error-page>
+		<!-- JSP页面产生的异常代码 -->
+		<error-code>404</error-code>
+		<!-- 出现异常时转向的页面 -->
+		<location>/WEB-INF/error.jsp</location>
+	</error-page>
 
 
 	<!-- 实现Servlet接口 -->

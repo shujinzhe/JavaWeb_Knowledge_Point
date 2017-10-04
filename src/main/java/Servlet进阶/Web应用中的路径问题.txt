@@ -1,4 +1,4 @@
-webapp/webRoot/webContent下的目录结构与Servlet的映射结构相对应
+一、webapp/webRoot/webContent下的目录结构与Servlet的映射结构相对应
 
 假设webapp下的文件目录层级如下：
 	webapp
@@ -16,3 +16,23 @@ webapp/webRoot/webContent下的目录结构与Servlet的映射结构相对应
 	/b/bb/bbb
 	
 在a.html中有一个超链接要访问/b/bb/bbb,则路径为../b/bb/bbb
+
+二、转发与重定向
+	1.路径
+		转发：/表示web应用的根路径
+		重定向：/表示Tomcat整个web站点的根路径(tomcat的webapp目录)
+	2.访问的资源
+		转发不能访问外部的资源
+		重定向可以访问外部的资源
+	3.是否可以访问WEB-INF下的资源
+		转发可以
+		重定向不可以
+	4.request域是否丢失
+		转发不丢失
+		重定向丢失
+	5.地址栏是否改变
+		转发不改变
+		重定向改变
+	6.发送请求的次数
+		转发1次
+		重定向2次

@@ -1,0 +1,27 @@
+1、<jsp:useBean>
+	--------------------------------------------------
+	id：JavaBean实例对象的引用名和其存储在域范围中的名称
+	class：类的全限定名
+	type：类型，默认为class属性值，可以为其父类
+	scope：存储域范围--->page|request|session|application
+	--------------------------------------------------
+	JavaBean创建过程：
+		在scope属性指定的作用域中查找以id名称作为属性名的JavaBean，
+		没有找到，根据class创建JavaBean的实例，把创建的实例放在scope
+		指定的作用域中，使用id的值作为key的名称；如果找到直接使用
+	标签体中的内容只有在JavaBean实例化的时候才调用
+
+2、<jsp:setProperty>和<jsp:getProperty>(只有前两个属性)
+	--------------------------------------------------
+	name：JavaBean实例名
+	property：需要设置的属性名
+	value：需要设置的属性值,支持<%=%>表达式
+	param：将属性值设置为请求参数值
+	--------------------------------------------------
+	如果一个JavaBean实例对象的某个属性值为null，那么使用<jsp:getProperty>
+	标签输出该属性的结果将是一个内容为"null"的字符串
+	--------------------------------------------------
+	JavaBean自省机制：<jsp:setProperty name="JavaBean实例名" property="*">
+	只要HTML<form>表单传递的参数名完全对应JavaBean的属性名，可一次设定所有属性
+
+3、
