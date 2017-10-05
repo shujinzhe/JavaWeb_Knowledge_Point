@@ -3,6 +3,16 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
                       http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0" metadata-complete="true">
+	
+	<!-- 配置标签库,Servlet2.4之前需要配置 
+	<jsp-config>
+		<taglib>
+			在JSP页面使用的tld名称,可以看成别名
+			<taglib-uri>/WEB-INF/tag.tld</taglib-uri>
+			标签库在当前web应用的完整路径，/表示从根路径开始
+			<taglib-location>/WEB-INF/tld/tag.tld</taglib-location>
+		</taglib>
+	</jsp-config> -->
 
 	<!-- 全局参数 -->
 	<context-param>

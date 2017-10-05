@@ -1,0 +1,52 @@
+自定义标签流程：
+	1、定义标签的样式<eric:Date/>
+	2、定义标签处理类
+	3、配置tld文件(模板从jstl的包中直接拷贝)
+		<!-- 标签库的描述信息 -->
+		<description>MyTag1.0 core library</description>
+		<!-- 标签库的概述 -->
+		<display-name>MyTag core</display-name>
+		<!-- 标签库版本 -->
+		<tlib-version>1.1</tlib-version>
+		<!-- 在JSP页面，建议使用的标签前缀名 -->
+		<short-name>c</short-name>
+		<!-- 给标签库文件(tld)起的唯一的名称(一般用的是网站的名称) -->
+		<uri>http://www.eric.com/jsp/mytag/core</uri>
+	
+		<!-- 定义标签  eric:Date-->
+		<tag>
+			<!-- 标签名称 -->
+			<name>Date</name>
+			<!-- 标签处理类的完整路径 -->
+			<tag-class>自定义标签.DateTag</tag-class>
+			<!-- 定义标签体类型，这里没有标签体，设置为empty -->
+			<body-content>empty</body-content>
+		</tag>
+	4、在web.xml中配置(Servlet2.4规范之前需要配置)
+		<!-- 配置标签库 -->
+		<jsp-config>
+			<taglib>
+				<!-- 在JSP页面使用的tld名称,可以看成别名 -->
+				<taglib-uri>/WEB-INF/tag.tld</taglib-uri>
+				<!-- 标签库在当前web应用的完整路径，/表示从根路径开始 -->
+				<taglib-location>/WEB-INF/tld/tag.tld</taglib-location>
+			</taglib>
+		</jsp-config>
+	5、<%@ taglib uri="/WEB-INF/tag.tld" prefix="eric"%>
+		uri:在web.xml中配置的<tagliib-uri>的值，或者是tld文件中<uri>标签的值
+
+注意：tld文件的位置
+	*可以放在WEB-INF目录及其子目录中，但不能放在WEB-INF目录下的lib和classes子目录中
+	*也可以放在WEB-INF\lib目录下的jar包的META-INF目录及其子目录中
+	*在Servlet2.4规范及其以后的版本中，tld文件不用在web.xml中配置
+	*tld文件服务器查找顺序：
+		*WEB-INF下查找
+		*lib下jar包中META-INF下查找
+
+<eric:Date>执行流程：
+	1、运行tag.jsp页面，执行到<eric:Date>标签时，根据前缀eric找到tld文件的位置
+	2、根据Date(标签名称)在tld文件中找到标签处理类
+	3、执行标签处理类
+		*JSP引擎调用setJspContext()方法，将pageContext对象传给标签处理类对象
+		*调用doTag()方法，处理业务，执行pageContext.getOut().println(new Date())
+			该代码的输出结果返回给JSP页面，同时把<eric:Date>替换为输出的值
