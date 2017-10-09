@@ -15,7 +15,7 @@ public class DBManager {
 	private String className = "com.mysql.jdbc.Driver";
 	private String user = "root";
 	private String password = "123456";
-	private String url = "jdbc:mysql://localhost:3306/test";
+	private String url = "jdbc:mysql://localhost:3306/javaweb";
 	public DBManager(){
 		try {
 			//加载驱动

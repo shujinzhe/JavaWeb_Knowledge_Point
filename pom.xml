@@ -93,6 +93,28 @@
 			<version>5.1.6</version> 
 		</dependency>
 
+		<!-- DBCP -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.1.1</version>
+		</dependency>
+		<!-- DBCP依赖包，已经包含在上面的包中了 -->
+		<!-- <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-pool2</artifactId>
+		    <version>2.4.2</version>
+		</dependency> -->
+		
+		<!-- C3P0连接池 -->
+		<dependency>
+		    <groupId>com.mchange</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.2.1</version>
+		</dependency>
+		
+		
+		
 
 
 	</dependencies>
