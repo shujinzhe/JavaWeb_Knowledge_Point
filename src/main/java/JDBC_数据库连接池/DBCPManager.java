@@ -1,4 +1,4 @@
-package 数据库连接池;
+package JDBC_数据库连接池;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
