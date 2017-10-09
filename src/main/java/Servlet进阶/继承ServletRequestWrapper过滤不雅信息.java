@@ -16,7 +16,7 @@ public class 继承ServletRequestWrapper过滤不雅信息  extends HttpServletR
 		// TODO Auto-generated method stub
 		String value = super.getParameter(name);
 		if(value!=null && value.contains("bad")){
-			value.replaceAll("bad", "***");
+			value = value.replaceAll("bad", "***");
 		}
 		return value;
 	}

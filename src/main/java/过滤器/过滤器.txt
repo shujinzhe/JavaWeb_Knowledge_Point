@@ -1,0 +1,43 @@
+WEB中过滤器常见应用：
+	*对用户提交的数据重新编码
+	*使浏览器不缓存页面的过滤器(并不是所有浏览器都支持，最好同时使用这3个响应头)
+		response.setDateHeader("Expires",-1);
+		response.setHeader("Cache-Control","no-cache");
+		response.setHeader("Pragma","no-cache");
+	*过滤掉非法文字
+	*验证客户是否已经登录
+	
+过滤器类型：
+	*REQUEST过滤器
+		用户直接访问页面时会调用，如果通过RequestDispatcher的include()方法
+		或forward()方法访问则不会调用
+		<filter>
+			<filter-name>myfilter</filter-name>
+			<filter-class>过滤器.MyFilter</filter-class>
+		</filter>
+		<filter-mapping>
+			<filter-name>myfilter</filter-name>
+			<url-pattern>/*</url-pattern>
+			<!-- 默认值为REQUEST -->
+			<dispatcher>REQUEST</dispatcher>
+		</filter-mapping>
+		
+	*FORWARD过滤器
+		通过RequestDispatcher的forward()方法时调用
+		<dispatcher>FORWARD</dispatcher>
+		
+	*INCLUDE过滤器
+		通过RequestDispatcher的include()方法时调用
+		<dispatcher>INCLUDE</dispatcher>
+		
+	*ERROR过滤器
+		1、如果目标资源是通过声明式异常处理机制调用时，那么该过滤器将被调用
+		2、当访问一个web资源时，如果服务器没有找到该目标资源，那么服务器就会给出
+		一个404错误代码，如果给404错误代码定义一个页面，当404错误发生时就会调用
+		该页面
+		<dispatcher>ERROR</dispatcher>
+		
+		<error-page>
+			<error-code>404</error-code>
+			<location>发生错误转向的页面地址</location>
+		</error-page>

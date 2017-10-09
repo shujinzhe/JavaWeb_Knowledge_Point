@@ -27,6 +27,21 @@
 	<listener>
 		<listener-class>监听器.MyServletContextAttributeListener</listener-class>
 	</listener>
+	
+	<!-- 过滤器 -->
+	<filter>
+		<filter-name>myfilter</filter-name>
+		<filter-class>过滤器.MyFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>myfilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<!-- <dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+		<dispatcher>ASYNC</dispatcher> -->
+	</filter-mapping>
 
 	<!-- 全局参数 -->
 	<context-param>
@@ -121,6 +136,12 @@
 		<servlet-class>Servlet进阶.ServletContext读取属性文件</servlet-class>
 	</servlet>
 	
+	<!-- 处理不雅信息 -->
+	<servlet>
+		<servlet-name>useFilter</servlet-name>
+		<servlet-class>Servlet进阶.使用过滤器</servlet-class>
+	</servlet>
+	
 	<!-- Servlet映射 -->
 	<servlet-mapping>
 		<servlet-name>myservlet1</servlet-name>
@@ -180,6 +201,11 @@
 	<servlet-mapping>
 		<servlet-name>loadProperties</servlet-name>
 		<url-pattern>/loadProperties</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>useFilter</servlet-name>
+		<url-pattern>/useFilter</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
