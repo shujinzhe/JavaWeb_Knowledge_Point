@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -40,7 +41,9 @@ public class Download extends HttpServlet{
 		//attachment表示要求用户干预
 		//filename建议下载的文件名
 		//必须在setContentType之后
-		resp.setHeader("Content-Disposition", "attachment;filename=赵丽颖.jpg");
+		//中文名需要使用URLEncoder编码
+		resp.setHeader("Content-Disposition", "attachment;filename="+
+				URLEncoder.encode("赵丽颖","utf-8")+".jpg");
 		
 		String realPath = this.getServletContext()
 				.getRealPath("/pic/赵丽颖.jpg");
