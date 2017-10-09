@@ -1,8 +1,8 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
-<%@ taglib uri="http://www.eric.com/jsp/mytag/core" prefix="eric"%>
+<%@ taglib uri="http://www.eric.com/jsp/mytag/core" prefix="eric" %>
 <%@ taglib uri="http://www.eric.com/jsp/mytag/functions" prefix="func" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,7 +22,9 @@
 	5、转换成大写：<eric:toUpperCase>eric</eric:toUpperCase><br/>
 	
 	
-	6、使用自定义函数获取字符串长度：${func:getLen("aaa") }
+	6、使用自定义函数获取字符串长度：${func:getLen("aaa") }<br/>
+	
+	7、${fn:contains("aaa","aa") }
 	
 	
 	

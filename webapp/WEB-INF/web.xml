@@ -13,6 +13,20 @@
 			<taglib-location>/WEB-INF/tld/tag.tld</taglib-location>
 		</taglib>
 	</jsp-config> -->
+	
+	<!-- 监听器 -->
+	<listener>
+		<listener-class>监听器.MyServletContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>监听器.MyHttpSessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>监听器.MyServletRequestListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>监听器.MyServletContextAttributeListener</listener-class>
+	</listener>
 
 	<!-- 全局参数 -->
 	<context-param>
