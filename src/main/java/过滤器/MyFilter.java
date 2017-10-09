@@ -9,8 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-
-import Servlet进阶.继承ServletRequestWrapper过滤不雅信息;
 /**
  * 自定义过滤器
  * @author Eric_Junior
