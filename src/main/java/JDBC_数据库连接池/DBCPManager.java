@@ -20,7 +20,7 @@ import JDBC.DBManager;
  */
 public class DBCPManager {
 	private static DBCPManager dbcpManager = new DBCPManager();
-	private static BasicDataSource bds = null;
+	private BasicDataSource bds = null;
 	private DBCPManager(){
 		/**
 		 * 可以将这些属性配置放在配置文件中
@@ -48,20 +48,20 @@ public class DBCPManager {
 		return dbcpManager;
 	}
 	
-	public static Connection getConnection(){
+	public Connection getConnection(){
 		try {
 			return bds.getConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}
+		return null;
 	}
 	
 	/**
 	 * 关闭资源
 	 */
-	public static void closeResource(Connection conn,Statement st,ResultSet rs){
+	public void closeResource(Connection conn,Statement st,ResultSet rs){
 		try {
 			if(rs!=null){
 				rs.close();
