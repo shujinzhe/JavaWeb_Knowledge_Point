@@ -1,0 +1,39 @@
+1、应用场景
+	*OA
+	*网站项目中需要附带发送邮件的功能
+	
+2、名词
+	邮件服务器
+	电子邮箱
+	邮件客户端软件
+	邮件传输协议
+		POP3(Post Office Protocal)
+		IMAP(Internet Message Access Protocal)：接收邮件协议
+		SMTP(Simple Mail Transfer Protocal)：发送邮件协议
+		
+3、主要API	
+	Message：代表一封电子邮件
+	Transport：发送邮件的API
+	Session：定义整个应用程序所需的环境信息
+	
+4、复杂邮件内容的组织结构
+	*RFC822邮件格式
+	*MIME协议(多用途互联网邮件扩展)：引入了新的格式规范和编码方式。MIME可支持
+		图像，声音，文本，动画等二进制文件的传递
+
+5、MIME类型的邮件结构
+	MimeMessage(整封邮件)
+		----Mime消息头
+		----MimeMultiPart
+			----MimeBodyPart(3种)
+				----正文(alternative)
+				----内嵌资源(related)
+				----附件(mixed)
+
+6、JAF(JavaBean Activation Framework)
+	一个专用的数据处理框架，用于封装数据，并为应用程序提供访问和操作数据的接口
+		*访问数据源中的数据
+		*获知数据源的数据类型
+		*对数据进行各种操作
+		*用户对数据执行某种操作时，自动创建执行该操作的软件部件的实例对象
+	
